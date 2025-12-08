@@ -1,5 +1,79 @@
 <!-- doctorDashboard.html -->
 
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" th:href="@{/assets/images/logo/logo.png}" />
+      <link rel="stylesheet" th:href="@{/assets/css/adminDashboard.css}">
+           <link rel="stylesheet" th:href="@{/assets/css/doctorDashboard.css}">
+         <link rel="stylesheet" th:href="@{/assets/css/style.css}">
+    <title>Doctor Dashboard</title>
+</head>
+<body>
+
+    <div class="container">
+        <div class="wrapper">
+            <div id="header"></div>
+            <main class="main-content">
+                
+                <input type="text" id="searchBar" placeholder="search by doctor name" />
+                <select>
+                    <option>Todays appointments</option>
+                    
+                    <option>Select date</option>
+                </select>
+             
+                    <table id="patient-table" >
+        <thead class="table-header">
+            <tr>
+                <th th:text="#{product.header.name}">ID</th>
+                <th th:text="#{product.header.price}">Price</th>
+                
+                <th th:text="#{product.header.price}">Phone</th>
+                
+                <th th:text="#{product.header.price}">Email</th>
+                
+                <th th:text="#{product.header.price}">Prescription</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Iterate over the list of products -->
+            <tr th:each="p : ${patient}">
+                <td th:text="${p.id}">###</td>
+                     <td th:text="${p.username}">###</td>
+                          <td th:text="${p.phone}">###</td>
+                               <td th:text="${p.email}">###</td>
+                               
+                               <td th:text="${p.prescription}">###</td>
+
+                  </tr>
+        </tbody>
+                </table>
+                <div id="content"></div>
+            </main>
+            <div id="footer"></div>
+        </div>
+    </div>
+    <div id="modal" class="modal">
+  <span id="closeModal" class="close">&times;</span>
+  <div id="modal-body"></div>
+</div>
+    
+    <script th:src="@{/js/render.js}" defer></script>
+    
+    <script th:src="@{/js/util.js}" defer></script>
+    
+    <script th:src="@{/js/header.js}" defer></script>
+    
+    <script th:src="@{/js/footer.js}" defer></script>
+    
+    <script th:src="@{/js/patientRows.js}" defer></script>
+    <script type="module" src="../js/services/doctorDashboard.js" defer></script>
+<script type="module" src="../js/components/patientServices.js" defer></script>
+</body>
+</html>
 <!-- 
 Step-by-Step Explanation of `doctorDashboard.html`
 This file defines the Doctor Dashboard interface, allowing doctors to view and manage their patient appointments, search records, and access patient prescriptions.
