@@ -3,6 +3,8 @@ package com.project.back_end.controllers;
 
 public class AdminController {
 
+
+
 // 1. Set Up the Controller Class:
 //    - Annotate the class with `@RestController` to indicate that it's a REST controller, used to handle web requests and return JSON responses.
 //    - Use `@RequestMapping("${api.path}admin")` to define a base path for all endpoints in this controller.
